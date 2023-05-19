@@ -7,8 +7,8 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Fisheye - photographe </title>
 </head>
 
@@ -17,7 +17,31 @@
     <a href="index.html"><img src="assets/images/logo.png" class="logo"></a>
   </header>
   <main id="main">
-      
+    <div class="sortof">
+      <label>Trier par</label>
+      <div class="filtre">
+        <div value="option1" class="option1">
+          <p id="option1">Popularité</p>
+          <i class="fa-solid fa-chevron-up" id="option4"></i>
+          <i class="fa-solid fa-chevron-down" id="option5"></i>
+        </div>
+        <div class="line" id="option8"></div>
+        <div value="option2" class="option2">
+          <p  id="option2">Date</p>
+          <i class="fa-solid fa-chevron-up" id="option10"></i>
+          <i class="fa-solid fa-chevron-down" id="option6"></i>
+        </div>
+        <div class="line" id="option9"></div>
+        <div value="option3" class="option3" >
+          <p id="option3">Titre</p>
+          <i class="fa-solid fa-chevron-up" id="option11"></i>
+          <i class="fa-solid fa-chevron-down" id="option7"></i>
+        </div>
+      </div>
+    </div>
+
+
+
   </main>
   <div id="contact_modal">
     <div class="modal">
@@ -36,7 +60,7 @@
   </div>
   <script src="/scripts/adapter/adapter.js"></script>
   <script src="/scripts/pages/photographer.js"></script>
-  
+
   <script src="/scripts/utils/contactForm.js"></script>
   <script src="scripts/factories/templatephotographer.js"></script>
 </body>
