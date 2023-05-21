@@ -3,6 +3,8 @@ async function getPhotographers() {
     const reponse = await fetch("/data/photographers.json");
     const Dataphotographers = await reponse.json();
     const photographers = Dataphotographers.photographers;
+    console.log("1AAAA");
+    console.log(photographer);
     return photographers
 }
 
@@ -13,8 +15,28 @@ async function getThePhotographer(dataId) {
     const Dataphotographers = await reponse.json();
     const photographers=Dataphotographers.photographers;
     const lePhotographe= photographers.filter(user => user.id == dataId);
-    return lePhotographe;
+console.log(`1111:${lePhotographe} `);
+    return (lePhotographe);
     }
+
+   /* async function getThePhotographer(dataId) {
+        try {
+            const reponse = await fetch("/data/photographers.json");
+            console.log(`json : ${reponse}`);
+          if (!reponse.ok) {
+            throw new Error(`Erreur HTTP : ${reponse.status}`);
+          }
+          const json = await reponse.json();
+          return json;
+        }
+        catch(error) {
+          console.error(`Impossible d'obtenir les produits : ${error}`);
+        }
+      }
+*/
+
+
+
     
 
     //recupération informations du photographe correspondant à l'ID

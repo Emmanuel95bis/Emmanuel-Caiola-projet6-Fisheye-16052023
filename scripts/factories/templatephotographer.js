@@ -83,8 +83,9 @@ function templateDataPhotographer(data) {
 
 }
 
-function templatePicturesPhotographer(data, photographe) {
+function templatePicturesPhotographer(data, photographe,order) {
 
+console.log(data+" "+photographe+" "+order);
   const photographersSection = document.querySelector("main");
   const $wrapper = document.createElement('section');
   $wrapper.classList.add('photograph-pictures');
@@ -93,7 +94,21 @@ function templatePicturesPhotographer(data, photographe) {
   </div>
   <div class=photos>`;
   let card2 = "";
+
+  switch (order) {
+    case 1:
+      console.log('AZERTYUIOP')
+      data.sort((a, b) => (b.likes > a.likes ? 1 : -1));
+      break;
+    case 2:
+      break;
+    case 3:
+      break;
+      }
+  
+  console.log(data);
   data.forEach((ligne) => {
+    console.log(`info images : ${ligne}`);
     card2 = card2 + `<div class=photos-card>
       <div class=photos-image>
       <img src=assets/pictures/${photographe.replace(' ', '-')}/${ligne.image}>

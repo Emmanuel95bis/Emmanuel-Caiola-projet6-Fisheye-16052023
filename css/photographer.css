@@ -193,10 +193,14 @@ flex-direction:column;
     display:flex;
     flex-direction: row;
     justify-content: start;
+    position:relative;
     
 }
 
 .sortof .filtre{
+    position: absolute;
+    left: 200px;
+    top: 23px;
     background-color: #901C1C;
     color:white;
     font-size: 18px;
@@ -220,6 +224,7 @@ padding-left:20px;
 margin: 0px;
 padding-top: 20px;
 padding-bottom: 20px;
+width: 120px;
 }
 
 .sortof label{
@@ -227,6 +232,8 @@ padding-bottom: 20px;
     font-weight: 700;
     padding-right:25px;
     margin-left: 99px;
+    margin-top:20px;
+    margin-bottom: 56px;
 }
 
 .sortof .fa-chevron-down{
