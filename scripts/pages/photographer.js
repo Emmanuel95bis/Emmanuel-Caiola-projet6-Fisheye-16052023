@@ -86,15 +86,15 @@ async function modifyFiltre1() {
   templatePicturesPhotographer(pictures, photographerData[0].name, 1);
 }
 
-function modifyFiltre2() {
+async function modifyFiltre2() {
   console.log("2222222");
   let tableau2 = [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0];
   appearDisepear(tableau2);
-  /*const thePhotographer=searchForId(location.search);
-  const photographer = getThePhotographer(thePhotographer);
-
-  const pictures =  getThePictures(thePhotographer);
-  templatePicturesPhotographer(pictures,photographer[0].name,2);*/
+// ordonner les photos par titre
+const photographerData = await getThePhotographer(thePhotographer);
+const pictures = await getThePictures(thePhotographer);
+templatePicturesPhotographer(pictures, photographerData[0].name, 2);
+  
 }
 
 async function modifyFiltre3() {
