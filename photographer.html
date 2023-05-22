@@ -17,7 +17,7 @@
     <a href="index.html"><img src="assets/images/logo.png" class="logo"></a>
   </header>
   <main id="main">
-    <section class="article"></section>
+
 
 
 
@@ -30,8 +30,16 @@
       </header>
       <form>
         <div>
-          <label>Prénom</label>
-          <input />
+          <h3 id="lePhotographe"></h3>
+          <label name="nom">Nom</label>
+          <input type="text" name="nom">
+          <label name="prenom">Prénom</label>
+          <input  type="text" name="prenom">
+          <label name="email">Email</label>
+          <input  type="email" name="email">
+          <label name="message">Votre message</label>
+          <textarea name="message"
+          rows="15" cols="64"></textarea>
         </div>
         <button class="contact_button">Envoyer</button>
       </form>
@@ -39,9 +47,9 @@
   </div>
   <script src="scripts/factories/templatephotographer.js"></script>
   <script src="/scripts/adapter/adapter.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
   <script src="/scripts/pages/photographer.js"></script>
 
-  <script src="/scripts/utils/contactForm.js"></script>
   
 </body>
 

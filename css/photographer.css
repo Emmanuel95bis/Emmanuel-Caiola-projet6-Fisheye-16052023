@@ -78,8 +78,15 @@ body{
     cursor: pointer;
     margin-top:137px;
 }
+.contact_modal{
+position : relative;
+}
 
 .modal {
+    Z-index: 5;
+    position: absolute;
+    top: 69px;
+    left: 392px;
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
@@ -92,18 +99,35 @@ body{
 }
 
 .modal header {
+    display : flex;
+    flex-direction: row;
     justify-content: space-between;
     width: 100%;
 }
 
 .modal header img {
     cursor: pointer;
+    margin-top:-75px;
 }
 
-.modal header h2 {
+.modal header h2,h3 {
     font-size: 64px;
-    font-weight: normal;
+    font-weight: 400;
     text-align: center;
+    margin-top:-19px;
+}
+
+.modal .contact_button{
+    margin-top:50px;
+}
+
+.modal textarea{
+    border-radius:5px;
+}
+
+.modal label{
+    font-size: 36px;
+    font-weight: 400;
 }
 
 form {

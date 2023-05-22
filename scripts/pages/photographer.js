@@ -4,6 +4,15 @@
 const resultat = location.search.indexOf('=');
 const thePhotographer = location.search.substring(resultat + 1);
 
+//ouverture du modale contactez moi
+async function opencontact(){
+const photographerData= await getThePhotographer(thePhotographer)
+console.log(photographerData);
+console.log(photographerData[0].name);
+displayModal(photographerData[0].name);
+}
+
+
 
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
@@ -34,6 +43,10 @@ function activationFiltre() {
   option10.addEventListener('click', modifyFiltre10);
   option11.addEventListener('click', modifyFiltre11);
 
+  const contactezMoi = document.querySelector(".contact_button");
+  contactezMoi.addEventListener('click',opencontact);
+
+
   modifyFiltre1();
 }
 
@@ -41,7 +54,7 @@ function activationFiltre() {
 async function init() {
   // Récupère les datas des photographes
   const photographerData = await getThePhotographer(thePhotographer);
-  console.log(`3333:${photographerData} `);
+
 
   const pictures = await getThePictures(thePhotographer);
 
@@ -50,8 +63,6 @@ async function init() {
   templateFiltre();
   activationFiltre();
 
-  const contactezMoi= document.querySelector('contact_button');
-  contactezMoi.addEventListener('click',displayModal);
 
 };
 
