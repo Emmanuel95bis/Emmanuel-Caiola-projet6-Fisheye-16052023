@@ -50,6 +50,9 @@ async function init() {
   templateFiltre();
   activationFiltre();
 
+  const contactezMoi= document.querySelector('contact_button');
+  contactezMoi.addEventListener('click',displayModal);
+
 };
 
 

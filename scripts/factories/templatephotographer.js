@@ -1,7 +1,4 @@
 function templateDataPhotographer(data) {
-  console.log("22222");
-  console.log(data);
-  console.log(data[0].id);
 
   const sectionPhotographers = document.querySelector(".article");
   const wrapper = document.createElement('div')
@@ -22,7 +19,6 @@ function templateDataPhotographer(data) {
   test.textContent="tesgdfgdfgdfgdfgdgdfgdfgdgdt";
   sectionPhotographers.appendChild(test);
   sectionPhotographers.appendChild(wrapper);
-
 }
 
 
