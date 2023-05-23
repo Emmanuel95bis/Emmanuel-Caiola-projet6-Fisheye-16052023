@@ -16,19 +16,19 @@ function templateDataPhotographer(data) {
   <img src=assets/photographers/${data[0].portrait}>`
 
   wrapper.innerHTML = card;
-  test.textContent="tesgdfgdfgdfgdfgdgdfgdfgdgdt";
+  test.textContent = "tesgdfgdfgdfgdfgdgdfgdfgdgdt";
   sectionPhotographers.appendChild(test);
   sectionPhotographers.appendChild(wrapper);
 }
 
 
-function templateFiltre(){
+function templateFiltre() {
   const filtre = document.querySelector('main');
   const wrapper = document.createElement('div');
   wrapper.classList.add('sortof');
 
 
-  const scriptFilter=`
+  const scriptFilter = `
   <label>Trier par</label>
   <div class="filtre">
     <div value="option1" class="option1">
@@ -75,11 +75,10 @@ function templateDataPhotographer(data) {
 
   $wrapper.innerHTML = card;
   photographersSection.appendChild($wrapper);
-
-
 }
 
-function templatePicturesPhotographer(data, photographe,order) {
+
+function templatePicturesPhotographer(data, photographe, order) {
   //effacement de tous les éléments photos
   const elements = document.getElementsByClassName("photos");
   while (elements.length > 0) elements[0].remove();
@@ -99,23 +98,31 @@ function templatePicturesPhotographer(data, photographe,order) {
       data.sort((a, b) => (b.likes > a.likes ? 1 : -1));
       break;
     case 2:
-       //tri par date     
-       data.sort((a, b) => (b.date > a.date) ? 1 : -1);
+      //tri par date     
+      data.sort((a, b) => (b.date > a.date) ? 1 : -1);
 
-       break;
+      break;
       break;
     case 3:
       //tri par titre      
       data.sort((a, b) => (a.title > b.title ? 1 : -1));
       break;
-      }
-  
-  console.log(data);
+  }
+  compteur = 0;
+
   data.forEach((ligne) => {
-    console.log(`info images : ${ligne.date}`);
+    compteur++;
+
+
+
     card2 = card2 + `<div class=photos-card>
-      <div class=photos-image>
-      <img src=assets/pictures/${photographe.replace(' ', '-')}/${ligne.image}>
+      <div class=photos-image>`
+
+    if (ligne.image) card2 = card2 + `<img id="image${compteur}" src=assets/pictures/${photographe.replace(' ', '-')}/${ligne.image}>`
+    if (ligne.video) card2 = card2 + `<video id="image${compteur}" src=assets/pictures/${photographe.replace(' ', '-')}/${ligne.video} type="video/mp4">>`
+
+
+    card2 = card2 + `
       </div>
       <div class=photos-content>
       <h3>${ligne.title}</h3>
@@ -127,4 +134,16 @@ function templatePicturesPhotographer(data, photographe,order) {
   let card = card1 + card2 + `</div>`;
   $wrapper.innerHTML = card;
   photographersSection.appendChild($wrapper);
+
+  //création des ecouteurs sur les médias
+   compteur = 0;
+  data.forEach((ligne) => {
+    compteur++;
+    //document.getElementById(`image${compteur}`).addEventListener('click',openLightModal);
+    console.log(`image${compteur}`);
+    const num=compteur;
+    document.getElementById(`image${compteur}`).addEventListener("click", function(){ openLightModal(num,data);});
+  });
 }
+
+

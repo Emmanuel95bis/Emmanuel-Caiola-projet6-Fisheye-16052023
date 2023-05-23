@@ -4,35 +4,33 @@
 const resultat = location.search.indexOf('=');
 const thePhotographer = location.search.substring(resultat + 1);
 
-//ouverture du modale contactez moi
-async function opencontact(){
-const photographerData= await getThePhotographer(thePhotographer)
-console.log(photographerData);
-console.log(photographerData[0].name);
-displayModal(photographerData[0].name);
+
+//ouverture  modale contactez moi
+async function opencontact() {
+  const photographerData = await getThePhotographer(thePhotographer)
+  displayModal(photographerData[0].name);
+}
+
+//ouverture light modale
+function openLightModal(ImageNum, imageInOrder) {
+  console.log("open light modal is now");
+  console.log(ImageNum);
+  console.log(imageInOrder);
+  displayLightModal(ImageNum, imageInOrder);
 }
 
 
-
-async function displayData(photographers) {
-  const photographersSection = document.querySelector(".photographer_section");
-
-  photographers.forEach((photographer) => {
-    const photographerModel = photographerFactory(photographer);
-    const userCardDOM = photographerModel.getUserCardDOM();
-    photographersSection.appendChild(userCardDOM);
-  });
-};
-
+//pointer les éléments des filtres et placer les écouteurs
+//d'évènements
 function activationFiltre() {
+  for (let i = 1; i < 12; i++) {
+    //chaine = `option${i}`;
+    chaine = '';
+    console.log(`chaine1 :${i} ${chaine}`);
+    if ((i != 8) || (i != 9)) { chaine = document.querySelector(`#option${i}`) };
+  }
 
-  for (let i = 0; i < 11; i++) {
-    chaine = `option${i + 1}`;
-    chaine = document.querySelector(`#option${i + 1}`);
-    }
-
-  // Ajouter un écouteur d'évènements à la table
-
+  // Ajouter des écouteurs d'évènements pour le filtre
   option1.addEventListener('click', modifyFiltre1);
   option2.addEventListener('click', modifyFiltre2);
   option3.addEventListener('click', modifyFiltre3);
@@ -43,10 +41,11 @@ function activationFiltre() {
   option10.addEventListener('click', modifyFiltre10);
   option11.addEventListener('click', modifyFiltre11);
 
+  //ajouter un écouteur d'évènement sur le bouton "contacter moi"
   const contactezMoi = document.querySelector(".contact_button");
-  contactezMoi.addEventListener('click',opencontact);
+  contactezMoi.addEventListener('click', opencontact);
 
-
+  //lancer le filtre populaire par defaut
   modifyFiltre1();
 }
 
@@ -54,25 +53,16 @@ function activationFiltre() {
 async function init() {
   // Récupère les datas des photographes
   const photographerData = await getThePhotographer(thePhotographer);
-
-
   const pictures = await getThePictures(thePhotographer);
 
   //mise en page des informations du photographe
   templateDataPhotographer(photographerData);
   templateFiltre();
   activationFiltre();
-
-
 };
 
-
-
-
-
-
-
-
+//gestion de présence des éléments du menu filtre
+//en fonction des écouteurs.
 function appearDisepear(tableau) {
   let compteur = 0;
   console.log("appearDisep");
@@ -89,7 +79,7 @@ function appearDisepear(tableau) {
 
 }
 
-
+//fonction de configuration du filtre
 async function modifyFiltre1() {
   let tableau1 = [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0];
   appearDisepear(tableau1);
@@ -104,18 +94,18 @@ async function modifyFiltre2() {
   console.log("2222222");
   let tableau2 = [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0];
   appearDisepear(tableau2);
-// ordonner les photos par titre
-const photographerData = await getThePhotographer(thePhotographer);
-const pictures = await getThePictures(thePhotographer);
-templatePicturesPhotographer(pictures, photographerData[0].name, 2);
-  
+  // ordonner les photos par titre
+  const photographerData = await getThePhotographer(thePhotographer);
+  const pictures = await getThePictures(thePhotographer);
+  templatePicturesPhotographer(pictures, photographerData[0].name, 2);
+
 }
 
 async function modifyFiltre3() {
   console.log("3333333");
   let tableau3 = [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0];
   appearDisepear(tableau3);
-  
+
   // ordonner les photos par titre
   const photographerData = await getThePhotographer(thePhotographer);
   const pictures = await getThePictures(thePhotographer);

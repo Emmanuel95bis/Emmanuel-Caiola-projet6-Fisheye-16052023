@@ -1,5 +1,4 @@
 function displayModal(photographer) {
-    console.log('openmodal');
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
     document.getElementById("lePhotographe").innerHTML = photographer;
