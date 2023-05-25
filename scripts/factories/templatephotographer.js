@@ -113,8 +113,6 @@ function templatePicturesPhotographer(data, photographe, order) {
   data.forEach((ligne) => {
     compteur++;
 
-
-
     card2 = card2 + `<div class=photos-card>
       <div class=photos-image>`
 
@@ -139,7 +137,7 @@ function templatePicturesPhotographer(data, photographe, order) {
    compteur = 0;
   data.forEach((ligne) => {
     compteur++;
-    //document.getElementById(`image${compteur}`).addEventListener('click',openLightModal);
+    
     console.log(`image${compteur}`);
     const num=compteur;
     document.getElementById(`image${compteur}`).addEventListener("click", function(){ openLightModal(num,data);});

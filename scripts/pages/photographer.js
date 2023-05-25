@@ -16,7 +16,7 @@ function openLightModal(ImageNum, imageInOrder) {
   console.log("open light modal is now");
   console.log(ImageNum);
   console.log(imageInOrder);
-  displayLightModal(ImageNum, imageInOrder);
+  displayLightModal(ImageNum,imageInOrder);
 }
 
 
