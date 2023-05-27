@@ -1,39 +1,64 @@
-function displayLightModal(ImageNum,imageInOrder){
-    ImageNum--;
-    console.log("insidelight modal is now");
-    console.log(ImageNum);
-    console.log(imageInOrder);
-    console.log(imageInOrder[ImageNum].image);
-   
+const chevronRight = document.querySelector('.fa-chevron-right');
+const chevronLeft = document.querySelector('.fa-chevron-left');
+
+function displayLightModal(imageNum, imageInOrder, lePhotographe) {
+
     document.getElementById("light_modal").style.display = "block";
- 
+
     document.querySelector("#light_modal_picture").innerHTML = '';
- 
+
     document.querySelector("header").style.display = "none";
     document.querySelector("main").style.display = "none";
-    
-    if (imageInOrder[ImageNum].image) {
-        const img = document.createElement('img');
-        img.src = `assets/pictures/Mimi-Keel/${imageInOrder[ImageNum].image}`;
-        document.getElementById('light_modal_picture').appendChild(img);
+
+    compteur = 0;
+
+    imageInOrder.forEach(element => {
+
+        console.log(element.image);
+        if (element.image) {
+            const img = document.createElement('img');
+            img.src = `assets/pictures/${lePhotographe.replace(' ', '-')}/${element.image}`;
+            img.setAttribute("id", `media${compteur}`);
+            imageNum != compteur ? img.style.display = "none" : img.style.display = "block";
+            document.getElementById('light_modal_picture').appendChild(img);
+        }
+
+        if (element.video) {
+            const mp4 = document.createElement("video");
+            mp4.src = `assets/pictures/${lePhotographe.replace(' ', '-')}/${element.video}`;
+            mp4.type = 'video/mp4';
+            mp4.controls = true;
+            mp4.setAttribute("id", `media${compteur}`);
+            imageNum != compteur ? mp4.style.display = "none" : mp4.style.display = "block";
+            document.getElementById('light_modal_picture').appendChild(mp4);
+        }
+        compteur = compteur + 1;
+    });
+
+    const moveOnAfter = () => {
+        document.getElementById(`media${imageNum}`).style.display = "none";
+        imageNum++;
+        if (imageNum > imageInOrder.length - 1) imageNum = 0;
+        document.getElementById(`media${imageNum}`).style.display = "block";
     }
 
-    if (imageInOrder[ImageNum].video) {
-        const mp4 = document.createElement("video");
-        mp4.src = `src=assets/pictures/Mimi-Keel/${imageInOrder[ImageNum].video}`;
-        mp4.type='video/mp4';
-        document.getElementById('light_modal_picture').appendChild(mp4);
+    const moveOnBefore = () => {
+        document.getElementById(`media${imageNum}`).style.display = "none";
+        imageNum--;
+        if (imageNum < 0) imageNum = imageInOrder.length - 1;
+        document.getElementById(`media${imageNum}`).style.display = "block";
     }
-    //${photographe.replace(' ', '-')}
 
-    document.getElementById("light_modal_picture")
+    document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
 
+    chevronRight.addEventListener("click", moveOnAfter);
+    chevronLeft.addEventListener("click", moveOnBefore);
 }
 
 function closeLightModal() {
     document.getElementById("light_modal").style.display = "none";
     document.querySelector("main").style.display = "block";
-    document.querySelector("header").style.display = "block";    
+    document.querySelector("header").style.display = "block";
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
 }

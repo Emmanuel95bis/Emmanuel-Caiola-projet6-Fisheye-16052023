@@ -329,55 +329,78 @@ form input {
 /*light modal*/
 
 #light_modal {
-    position: absolute;
-    z-index: 7;
+    display: none;
+    align-items: center;
+    justify-content: end;
     background-color: #E5E5E5;
+    width: 84%;
+    height: auto;
 }
 
 .light_modal_content {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    position: relative;
+    grid-template-columns: 5fr 5fr 73fr 5fr 5fr;
+    grid-template-rows: 2fr 2fr 34fr 10fr 34fr 10fr;
+/*
+    grid-template-columns: 5% 5% 73% 5% 5%;
+    grid-template-rows: 2% 2% 34% 10% 34% 10%;*/
+     grid-gap: 5px;
 }
 
 .light_modal_content .close {
-    position: absolute;
-    top: 0px;
-    right: 0px;
+    z-index: 7;
+    margin-left: 10px;
+    grid-area: 3 / 4 / 4 / 5;
+    color: #901C1C;
 }
 
-.light_modal_slide {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 60%;
-    height: 70%;
+.light_modal_content span {
+
+    grid-area: 6 / 3 / 7 / 4;
+    color: #901C1C;
+    font-size: 24px;
 }
 
-#light_modal_picture{
-    width: 50%;
-    height: 60%;
+
+#light_modal_picture {
+    z-index: 7;
+    grid-area: 3 / 3 / 6 / 4;
+    object-fit: cover;
+
 }
 
 #light_modal_picture img {
+    z-index: 7;
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    object-fit: cover;
+ }
+
+.light_modal_content .fa-chevron-right {
+    z-index: 7;
     display: flex;
-
-    justify-content: space-evenly;
-
-
+    justify-content: center;
+    grid-area: 4 / 4 / 5 / 5;
+    font-size: 48px;
+    color: #901C1C;
 }
 
-.light_modal_slide .fa-chevron-right {
-    background-color: blue;
-    font-size: 30px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
+.light_modal_content .fa-chevron-left {
+    z-index: 7;
+    display: flex;
+    justify-content: center;
+    grid-area: 4 / 2 / 5 / 3;
+    font-size: 48px;
+    color: #901C1C;
 }
 
-.light_modal_slide .fa-chevron-left {
-    font-size: 30px;
+.cadre{
     position: absolute;
-    top: 0px;
-    left: 0px;
+    width: 94%;
+    height: 97%;
+    border: 2px solid #95FFF9;
+    margin-left: 27px;
+    margin-top: 17px;
 }

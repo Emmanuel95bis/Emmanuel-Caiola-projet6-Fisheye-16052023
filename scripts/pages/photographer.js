@@ -1,5 +1,7 @@
 
 
+
+
 //récupération de l'ID du photographe
 const resultat = location.search.indexOf('=');
 const thePhotographer = location.search.substring(resultat + 1);
@@ -12,11 +14,13 @@ async function opencontact() {
 }
 
 //ouverture light modale
-function openLightModal(ImageNum, imageInOrder) {
+async function openLightModal(ImageNum, imageInOrder) {
   console.log("open light modal is now");
   console.log(ImageNum);
   console.log(imageInOrder);
-  displayLightModal(ImageNum,imageInOrder);
+  const photographerData = await getThePhotographer(thePhotographer)
+  ImageNum=ImageNum-1;
+  displayLightModal(ImageNum,imageInOrder,photographerData[0].name);
 }
 
 
