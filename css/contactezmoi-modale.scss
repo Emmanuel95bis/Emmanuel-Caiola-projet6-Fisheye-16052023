@@ -1,0 +1,90 @@
+#contact_modal {
+    display: none;
+}
+
+.contact_modal {
+    position: relative;
+}
+
+.modal {
+    Z-index: 5;
+    position: absolute;
+    top: 69px;
+    left: 392px;
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: auto;
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+
+        img {
+            cursor: pointer;
+            margin-top: -75px;
+        }
+
+        h2,
+        h3 {
+            font-size: 64px;
+            font-weight: 400;
+            text-align: center;
+            margin-top: -19px;
+            margin-bottom: 19px;
+        }
+    }
+    .contact_button {
+        margin-top: 50px;
+    }
+
+    input {
+        font-size: 2em;
+    }
+
+
+    textarea {
+        width: 100%;
+        border-radius: 5px;
+        font-size: 2em;
+    }
+
+    label {
+        font-size: 36px;
+        font-weight: 400;
+    }
+}
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+
+    label {
+        color: #312E2E;
+        font-size: 36px;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: self-start;
+        margin-bottom: 26px;
+    }
+
+    input {
+        width: 100%;
+        height: 68px;
+        border: none;
+        border-radius: 5px;
+    }
+}
