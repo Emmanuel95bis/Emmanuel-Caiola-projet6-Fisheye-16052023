@@ -134,4 +134,9 @@ video {
   font-size: 20px;
   width: 20px;
   margin-top: 14px;
+}
+
+.photos-content i:active {
+  transition-duration: 100ms;
+  color: #160af3;
 }/*# sourceMappingURL=photographer.css.map */

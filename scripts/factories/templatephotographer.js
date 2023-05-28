@@ -1,3 +1,5 @@
+
+
 function templateDataPhotographer(data) {
 
   const sectionPhotographers = document.querySelector(".article");
@@ -124,8 +126,8 @@ function templatePicturesPhotographer(data, photographe, order) {
       </div>
       <div class=photos-content>
       <h3>${ligne.title}</h3>
-      <p>${ligne.likes}</p>
-      <i class="fa-solid fa-heart"></i>
+      <p id="p${compteur}">${ligne.likes}</p>
+      <i class="fa-solid fa-heart" id="${compteur}"></i>
       </div>
     </div>`;
   });
@@ -133,15 +135,28 @@ function templatePicturesPhotographer(data, photographe, order) {
   $wrapper.innerHTML = card;
   photographersSection.appendChild($wrapper);
 
+
+
   //création des ecouteurs sur les médias
-   compteur = 0;
+  compteur = 0;
   data.forEach((ligne) => {
     compteur++;
-    
+
     console.log(`image${compteur}`);
     const num=compteur;
-    document.getElementById(`image${compteur}`).addEventListener("click", function(){ openLightModal(num,data);});
+    document.getElementById(`image${compteur}`).addEventListener("click", function () { openLightModal(num, data); });
+    document.getElementById(`${compteur}`).addEventListener("click", function (event) {
+      console.log(ligne.likes)
+      ligne.likes += 1;
+      console.log(ligne.likes)
+      console.log(event.target.id)
+      //document.getElementById(`p${compteur}`).innerHTML = ligne.likes
+      document.getElementById(`p${event.target.id}`).innerHTML = ligne.likes;
+    });
   });
+
+
+
 }
 
 

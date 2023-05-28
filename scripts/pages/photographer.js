@@ -1,11 +1,7 @@
 
-
-
-
 //récupération de l'ID du photographe
 const resultat = location.search.indexOf('=');
 const thePhotographer = location.search.substring(resultat + 1);
-
 
 //ouverture  modale contactez moi
 async function opencontact() {
@@ -63,7 +59,7 @@ async function init() {
   templateDataPhotographer(photographerData);
   templateFiltre();
   activationFiltre();
-};
+  };
 
 //gestion de présence des éléments du menu filtre
 //en fonction des écouteurs.
@@ -152,6 +148,9 @@ function modifyFiltre11() {
   let tableau11 = [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0];
   appearDisepear(tableau11);
 }
+
+
+
 
 init();
 
