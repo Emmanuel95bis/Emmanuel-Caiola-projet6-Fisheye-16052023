@@ -11,6 +11,7 @@ function photographerFactory(data) {
         lienA.href=lienID;
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
+        img.setAttribute("alt", `Photographe ${name}`)
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
 

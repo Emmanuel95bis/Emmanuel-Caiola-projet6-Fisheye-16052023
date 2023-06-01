@@ -14,7 +14,7 @@ function templateDataPhotographer(data) {
     <p>${data[0].tagline}</p>
     </div>
   </div>
-  <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+  <button role="contactez moi" class="contact_button" onclick="displayModal()">Contactez-moi</button>
   <img src=assets/photographers/${data[0].portrait}>`
 
   wrapper.innerHTML = card;
@@ -33,20 +33,20 @@ function templateFiltre() {
   const scriptFilter = `
   <label>Trier par</label>
   <div class="filtre">
-    <div value="option1" class="option1">
-      <p id="option1">Popularité</p>
+    <div value="option1" class="option1" role="filtre par popularité date et titre">
+      <p id="option1" aria-label="filtrer par popularité">Popularité</p>
       <i class="fa-solid fa-chevron-up" id="option4"></i>
       <i class="fa-solid fa-chevron-down" id="option5"></i>
     </div>
     <div class="line" id="option8"></div>
     <div value="option2" class="option2">
-      <p id="option2">Date</p>
+      <p id="option2" aria-label="filtrer par date">Date</p>
       <i class="fa-solid fa-chevron-up" id="option10"></i>
       <i class="fa-solid fa-chevron-down" id="option6"></i>
     </div>
     <div class="line" id="option9"></div>
     <div value="option3" class="option3">
-      <p id="option3">Titre</p>
+      <p id="option3"  aria-label="filtrer par titre">Titre</p>
       <i class="fa-solid fa-chevron-up" id="option11"></i>
       <i class="fa-solid fa-chevron-down" id="option7"></i>
     </div>
@@ -65,15 +65,15 @@ function templateDataPhotographer(data) {
   const $wrapper = document.createElement('div')
   $wrapper.classList.add('photograph-header')
 
-  const card = `<div class="photograph-informations">
-      <h1>${data[0].name}</h1>
+  const card = `<div class="photograph-informations" aria-label=”informations photographe”>
+      <h1 aria-label=”Le nom du photographe>${data[0].name}</h1>
       <div class="photograph-cadre">
-      <h2>${data[0].city}</h2>
-      <p>${data[0].tagline}</p>
+      <h2 aria-label=”son lieu d'habitation>${data[0].city}</h2>
+      <p aria-label=”le principe du photographe>${data[0].tagline}</p>
       </div>
     </div>
-    <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-    <img src=assets/photographers/${data[0].portrait}>`
+    <button role="Bouton contactez moi" class="contact_button" onclick="displayModal()">Contactez-moi</button>
+    <img alt="${data[0].name}" src=assets/photographers/${data[0].portrait}>`
 
   $wrapper.innerHTML = card;
   photographersSection.appendChild($wrapper);
@@ -114,20 +114,19 @@ function templatePicturesPhotographer(data, photographe, order) {
 
   data.forEach((ligne) => {
     compteur++;
-
     card2 = card2 + `<div class=photos-card>
       <div class=photos-image>`
 
-    if (ligne.image) card2 = card2 + `<img id="image${compteur}" src=assets/pictures/${photographe.replace(' ', '-')}/${ligne.image}>`
-    if (ligne.video) card2 = card2 + `<video id="image${compteur}" src=assets/pictures/${photographe.replace(' ', '-')}/${ligne.video} type="video/mp4">>`
+    if (ligne.image) card2 = card2 + `<img role="image" id="image${compteur}" alt="${ligne.title}" src=assets/pictures/${photographe.replace(' ', '-')}/${ligne.image}>`
+    if (ligne.video) card2 = card2 + `<video role="vidéo"  id="image${compteur}" alt="${ligne.title}" src=assets/pictures/${photographe.replace(' ', '-')}/${ligne.video} type="video/mp4">>`
 
 
     card2 = card2 + `
       </div>
       <div class=photos-content>
-      <h3>${ligne.title}</h3>
-      <p id="p${compteur}">${ligne.likes}</p>
-      <i class="fa-solid fa-heart" id="${compteur}"></i>
+      <h3 aria-label="titre "${ligne.title} >${ligne.title}</h3>
+      <p aria-label="Nombre de likes "${ligne.likes} id="p${compteur}">${ligne.likes}</p>
+      <i role="coeur like" class="fa-solid fa-heart" id="${compteur}"></i>
       </div>
     </div>`;
   });

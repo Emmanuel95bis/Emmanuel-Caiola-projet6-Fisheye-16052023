@@ -65,7 +65,6 @@ async function init() {
 //en fonction des écouteurs.
 function appearDisepear(tableau) {
   let compteur = 0;
-  console.log("appearDisep");
   tableau.forEach(element => {
     compteur = compteur + 1;
     if (element == 0) {
@@ -102,7 +101,6 @@ async function modifyFiltre2() {
 }
 
 async function modifyFiltre3() {
-  console.log("3333333");
   let tableau3 = [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0];
   appearDisepear(tableau3);
 
@@ -113,38 +111,32 @@ async function modifyFiltre3() {
 }
 
 function modifyFiltre4() {
-  console.log("44444444");
   let tableau4 = [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0];
   appearDisepear(tableau4);
 }
 
 function modifyFiltre5() {
-  console.log("5555555");
   let tableau5 = [1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0];
   appearDisepear(tableau5);
 }
 
 function modifyFiltre6() {
-  console.log("666666");
   let tableau6 = [1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0];
   appearDisepear(tableau6);
 }
 
 function modifyFiltre7() {
-  console.log("777777");
   let tableau7 = [1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1];
   appearDisepear(tableau7);
 }
 
 
 function modifyFiltre10() {
-  console.log("DDDDDDD");
   let tableau10 = [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0];
   appearDisepear(tableau10);
 }
 
 function modifyFiltre11() {
-  console.log("OOOOOOOOO");
   let tableau11 = [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0];
   appearDisepear(tableau11);
 }

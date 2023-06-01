@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="fr">
 
 <head>
   <link href="css/photographer.css" rel="stylesheet" type="text/css" />
@@ -13,27 +14,27 @@
 </head>
 
 <body>
-  <header>
-    <a href="index.html"><img src="assets/images/logo.png" class="logo"></a>
+  <header  aria-label="entête page photographe avec titre et logo">
+    <a href="index.html"><img src="assets/images/logo.png"  alt="Logo Fisheye" class="logo"></a>
   </header>
   <main id="main">
-  </main>
+  </main  aria-label="Menu principal d'un photographe">
   <div id="contact_modal">
     <div class="modal">
       <header>
-        <h2>Contactez-moi</h2>
+        <h2  aria-label="Contactez moi" >Contactez-moi</h2>
         <img src="assets/icons/close.svg" onclick="closeModal()" />
       </header>
-      <form>
+      <form role="formulaire de contact">
         <div>
           <h3 id="lePhotographe"></h3>
-          <label name="nom">Nom</label>
+          <label name="nom" aria-label="Saisissez votre nom">Nom</label>
           <input type="text" name="nom">
-          <label name="prenom">Prénom</label>
+          <label name="prenom" aria-label="Saisissez votre prénom">Prénom</label>
           <input type="text" name="prenom">
-          <label name="email">Email</label>
+          <label name="email" aria-label="Saisissez votre Email">Email</label>
           <input type="email" name="email">
-          <label name="message">Votre message</label>
+          <label name="message" aria-label="Saisissez votre message">Votre message</label>
           <textarea name="message" rows="6"></textarea>
         </div>
       </form>
@@ -42,7 +43,7 @@
   </div>
   <div id="light_modal">
     <div class="light_modal_content">
-      <i class="fa fa-times" aria-hidden="true" onclick="closeLightModal()"></i>
+      <i class="fa fa-times" aria-hidden="true"></i>
       <i class="fa-solid fa-chevron-left"></i>
       <div id="light_modal_picture">
       </div>
