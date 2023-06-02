@@ -3,64 +3,66 @@
 <html lang="fr">
 
 <head>
-  <link href="css/photographer.css" rel="stylesheet" type="text/css" />
-  <meta charset="utf-8">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Fisheye - photographe </title>
+    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Fisheye - photographe </title>
 </head>
 
 <body>
-  <header  aria-label="entête page photographe avec titre et logo">
-    <a href="index.html"><img src="assets/images/logo.png"  alt="Logo Fisheye" class="logo"></a>
-  </header>
-  <main id="main">
-  </main  aria-label="Menu principal d'un photographe">
-  <div id="contact_modal">
-    <div class="modal">
-      <header>
-        <h2  aria-label="Contactez moi" >Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
-      </header>
-      <form role="formulaire de contact">
-        <div>
-          <h3 id="lePhotographe"></h3>
-          <label name="nom" aria-label="Saisissez votre nom">Nom</label>
-          <input type="text" name="nom">
-          <label name="prenom" aria-label="Saisissez votre prénom">Prénom</label>
-          <input type="text" name="prenom">
-          <label name="email" aria-label="Saisissez votre Email">Email</label>
-          <input type="email" name="email">
-          <label name="message" aria-label="Saisissez votre message">Votre message</label>
-          <textarea name="message" rows="6"></textarea>
+    <header aria-label="entête page photographe avec titre et logo">
+        <a href="index.html"><img src="assets/images/logo.png" alt="Logo Fisheye" class="logo"></a>
+    </header>
+    <main id="main">
+    </main aria-label="Menu principal d'un photographe">
+    <div id="contact_modal">
+        <div class="modal">
+            <header>
+                <h2 aria-label="Contactez moi">Contactez-moi</h2>
+                <img src="assets/icons/close.svg" onclick="closeModal()" />
+            </header>
+            <form role="formulaire de contact">
+                <div>
+                    <h3 id="lePhotographe"></h3>
+                    <label name="nom" aria-label="Saisissez votre nom">Nom</label>
+                    <input type="text" name="nom">
+                    <label name="prenom" aria-label="Saisissez votre prénom">Prénom</label>
+                    <input type="text" name="prenom">
+                    <label name="email" aria-label="Saisissez votre Email">Email</label>
+                    <input type="email" name="email">
+                    <label name="message" aria-label="Saisissez votre message">Votre message</label>
+                    <textarea name="message" rows="6"></textarea>
+                </div>
+            </form>
+            <button class="contact_button" onclick="closeModal()">Envoyer</button>
         </div>
-      </form>
-      <button class="contact_button" onclick="closeModal()">Envoyer</button>
     </div>
-  </div>
-  <div id="light_modal">
-    <div class="light_modal_content">
-      <i class="fa fa-times" aria-hidden="true"></i>
-      <i class="fa-solid fa-chevron-left"></i>
-      <div id="light_modal_picture">
-      </div>
-      <i class="fa-solid fa-chevron-right"></i>
+    <div id="light_modal">
+        <div class="light_modal_content">
 
-      <span class="titre"></span>
-      <div class="cadre"></div>
+            <i class="fa-solid fa-chevron-left"></i>
+            <div class="light_modal_center">
+                <div id="light_modal_picture"></div>
+                <span class="titre"></span>
+            </div>
+            <div class="light_modal_right">
+            <i class="fa fa-times" aria-hidden="true"></i>
+            <i class="fa-solid fa-chevron-right"></i>
+           </div>
+        </div>
     </div>
-  </div>
 
-  <script src="scripts/factories/templatephotographer.js"></script>
-  <script src="/scripts/adapter/adapter.js"></script>
-  <script src="/scripts/utils/contactForm.js"></script>
-  <script src="/scripts/utils/lightModal.js"></script>
-  <script src="/scripts/wishlist/counter.js"></script>
-  <script src="/scripts/pages/photographer.js"></script>
-  
+    <script src="scripts/factories/templatephotographer.js"></script>
+    <script src="/scripts/adapter/adapter.js"></script>
+    <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/lightModal.js"></script>
+    <script src="/scripts/wishlist/counter.js"></script>
+    <script src="/scripts/pages/photographer.js"></script>
+
 
 </body>
 

@@ -10,8 +10,10 @@
 .light_modal_content {
     display: grid;
     position: relative;
-    grid-template-columns: 5fr 5fr 73fr 5fr 5fr;
-    grid-template-rows: 2fr 2fr 34fr 10fr 34fr 10fr;
+    //grid-template-columns: 5% 5% 73% 5% 5%;
+    //grid-template-rows: 2% 2% 34% 10% 34% 10%;
+  grid-template-columns: 5fr 5fr 73fr 5fr 5fr;
+  grid-template-rows: 2fr 2fr 34fr 10fr 34fr 10fr;
     grid-gap: 5px;
 
     .fa{
