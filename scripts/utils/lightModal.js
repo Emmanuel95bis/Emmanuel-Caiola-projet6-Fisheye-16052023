@@ -3,6 +3,20 @@ const chevronLeft = document.querySelector('.fa-chevron-left');
 const close = document.querySelector('.fa-times');
 
 
+function getSize(media){
+    console.log(media);
+    const img = document.getElementById(media);
+    const width = img.clientWidth;
+    const height = img.clientHeight;
+    console.log("Width =" + width + ", " + "Height=" + height);
+    width<height?img.setAttribute("class", "portrait"):img.setAttribute("class", "paysage");
+  }
+
+
+
+
+
+
 
 function displayLightModal(imageNum, imageInOrder, lePhotographe) {
     
@@ -21,6 +35,7 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         
 
         console.log(element);
+        //insertion de toutes les photos en display "none" sauf l'élue
         if (element.image) {
             const img = document.createElement('img');
             img.src = `assets/pictures/${lePhotographe.replace(' ', '-')}/${element.image}`;
@@ -28,8 +43,11 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
             img.setAttribute("alt", element.title);
             img.style.display = "none" ;
             console.log(`compteur :${compteur} numero image : ${imageNum}` );
-            imageNum != compteur ? img.style.display = "none" : img.style.display = "flex";
+            img.style.display = "flex";
             document.getElementById('light_modal_picture').appendChild(img);
+            //insérer la classe paysage ou portrait en fonction de la taille de l'image
+            getSize(`media${compteur}`);
+            imageNum != compteur ? img.style.display = "none" : img.style.display = "flex";
             }
 
         if (element.video) {
@@ -41,6 +59,8 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
             mp4.setAttribute("alt", element.title);
             imageNum != compteur ? mp4.style.display = "none" : mp4.style.display = "flex";
             document.getElementById('light_modal_picture').appendChild(mp4);
+
+            
         }
         compteur++;
     });
@@ -50,7 +70,9 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         document.getElementById(`media${imageNum}`).style.display = "none";
         imageNum++;
         if (imageNum > imageInOrder.length - 1) imageNum = 0;
+        document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
         document.getElementById(`media${imageNum}`).style.display = "flex";
+        
         
     }
 
@@ -60,8 +82,10 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         imageNum--;
         if (imageNum < 0) imageNum = imageInOrder.length - 1;
         document.getElementById(`media${imageNum}`).style.display = "flex";
+        document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
     }
 
+    document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
 
     const closeLightModal = () => {
         document.getElementById("light_modal").style.display = "none";
@@ -72,10 +96,11 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
       
         document.querySelector("main").style.display = "block";
         document.querySelector("header").style.display = "block";
+        document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
 
     }
 
-    document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
+    
 
 
     chevronRight.addEventListener("click", moveOnAfter);

@@ -107,6 +107,7 @@ video {
     width: 350px;
     height: 300px;
     border-radius: 5px;
+    cursor:pointer;
 }
 
 .photos-card .photos-content {
@@ -136,9 +137,11 @@ video {
     font-size: 20px;
     width: 20px;
     margin-top: 14px;
+    cursor:pointer;
     
 }
 .photos-content i:active {
     transition-duration: 100ms;
     color: #160af3;
 }
+
