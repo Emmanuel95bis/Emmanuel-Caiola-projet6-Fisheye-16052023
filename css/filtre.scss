@@ -1,3 +1,4 @@
+@import url("variables.css");
 
 .sortof {
     display: flex;
@@ -9,7 +10,7 @@
         position: absolute;
         left: 200px;
         top: 23px;
-        background-color: #901C1C;
+        background-color: $color-brown;
         color: white;
         font-size: 18px;
         font-weight: 700;

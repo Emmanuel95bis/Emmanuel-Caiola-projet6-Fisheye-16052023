@@ -1,5 +1,8 @@
 @import url("photographer.css");
 
+
+$color-brown:#901C1C;
+
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
@@ -15,7 +18,7 @@ header {
 }
 
 h1 {
-    color: #901C1C;
+    color: $color-brown;
     margin-right: 100px;
 }
 
@@ -29,6 +32,7 @@ h1 {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
     margin-top: 100px;
+    margin-bottom:114px;
 
     article {
         justify-self: center;
@@ -36,16 +40,57 @@ h1 {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-    }
-        article h2 {
+
+        h2 {
             color: #D3573C;
             font-size: 36px;
+            margin: 0px;
+
         }
 
-        article img {
+        img {
             height: 200px;
             width: 200px;
             border-radius: 50%;
             object-fit: cover;
         }
+
     }
+
+}
+
+#main>div>article>p:nth-child(2) {
+    font-size: 13px;
+    font-weight: 400;
+    color: $color-brown;
+    margin: 0px;
+}
+
+#main>div>article>p:nth-child(3) {
+    font-size: 10px;
+    font-weight: 400;
+    color: black;
+     margin: 0px;
+}
+
+#main>div>article>p:nth-child(4)
+{
+    font-size: 9px;
+    font-weight: 400;
+    color:#757575;
+    margin: 0px;
+}
+
+#main > div > article{
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#main > div > article > a{
+align-items: center;
+display: flex;
+flex-direction: column;
+}

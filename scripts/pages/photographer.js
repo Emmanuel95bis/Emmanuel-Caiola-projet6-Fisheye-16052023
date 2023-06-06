@@ -53,7 +53,7 @@ function activationFiltre() {
 async function init() {
   // Récupère les datas des photographes
   const photographerData = await getThePhotographer(thePhotographer);
-  const pictures = await getThePictures(thePhotographer);
+ // const pictures = await getThePictures(thePhotographer);
 
   //mise en page des informations du photographe
   templateDataPhotographer(photographerData);

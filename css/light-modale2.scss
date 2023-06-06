@@ -1,3 +1,5 @@
+$color-brown:#901C1C;;
+
 #light_modal {
     width: 100%;
     justify-content: center;
@@ -46,7 +48,7 @@
 .light_modal_content span {
     display: flex;
     align-items: flex-start;
-    color: #901C1C;
+    color: $color-brown;
     font-size: 24px;
     position:relative;
     margin-left: 7%;
@@ -58,7 +60,7 @@
     position: absolute;
     right: 3vw;
     font-size: 42px;
-    color: #901C1C;
+    color:$color-brown;
     cursor:pointer;
 }
 
@@ -69,7 +71,7 @@
    right: 3vw;
     top: 40vh;
     font-size: 48px;
-    color: #901C1C;
+    color: $color-brown;
     cursor:pointer;
 }
 
@@ -78,7 +80,7 @@
    left: 3vw;
     top: 40vh;
     font-size: 48px;
-    color: #901C1C;
+    color: $color-brown;
     cursor:pointer;
 }
 

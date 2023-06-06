@@ -101,10 +101,22 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
     }
 
     
-
-
     chevronRight.addEventListener("click", moveOnAfter);
     chevronLeft.addEventListener("click", moveOnBefore);
     close.addEventListener("click", closeLightModal);
-}
 
+    //ecouter sur les touches de clavier
+    document.addEventListener('keydown', function(e) {
+        e.preventDefault();
+         if (e.key == "ArrowRight") {
+            moveOnAfter()
+        } else if (e.key== "ArrowLeft") {
+            moveOnBefore()
+        }else if (e.key== "Escape") {
+            closeLightModal()
+    }
+      
+
+     })
+    }
+     

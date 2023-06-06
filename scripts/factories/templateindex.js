@@ -1,27 +1,36 @@
 function photographerFactory(data) {
-    const { name, portrait,tagline,price,id } = data;
+    const { name, portrait,city,country,tagline,price,id } = data;
     const picture = `assets/photographers/${portrait}`;
 
-    function getUserCardDOM() {
-        lienID=`photographer.html?id=${id}`;
-        const article = document.createElement( 'article' );
 
-        //création du lien href pour l'image et le titre
-        const lienA=document.createElement('a');
-        lienA.href=lienID;
+
+
+    
+    function getUserCardDOM() {
+        lienID = `photographer.html?id=${id}`;
+        const article = document.createElement( 'article' );
+        const lienA = document.createElement('a');
+        lienA.href = lienID;
+        lienA.setAttribute("id",`${name}`);
         const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        img.setAttribute("alt", `Photographe ${name}`)
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", `Photographe ${name}`);
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
 
+        console.log(city);
+        console.log(country);
+        const p0 = document.createElement( 'P' );
+        p0.textContent = `${city}, ${country}`;
         const p1 = document.createElement( 'P' );
         p1.textContent = tagline;
         const p2 = document.createElement( 'P' );
-        p2.textContent = `${price}€`;
+        p2.textContent = `${price}€/jour`;
         lienA.appendChild(img);
         lienA.appendChild(h2);
+        //article.appendChild(saisie);
         article.appendChild(lienA);
+        article.appendChild(p0);     
         article.appendChild(p1);
         article.appendChild(p2);
         return (article);

@@ -59,6 +59,8 @@ function templateFiltre() {
 
 
 
+
+
 function templateDataPhotographer(data) {
 
   const photographersSection = document.querySelector("main");
@@ -111,14 +113,15 @@ function templatePicturesPhotographer(data, photographe, order) {
       break;
   }
   compteur = 0;
-
+  likeCompteur = 0;
   data.forEach((ligne) => {
     compteur++;
+    likeCompteur = likeCompteur + ligne.likes;
     card2 = card2 + `<div class=photos-card>
       <div class=photos-image>`
 
-    if (ligne.image) card2 = card2 + `<img role="image" id="image${compteur}" alt="${ligne.title}" src=assets/pictures/${photographe.replace(' ', '-')}/${ligne.image}>`
-    if (ligne.video) card2 = card2 + `<video role="vidéo"  id="image${compteur}" alt="${ligne.title}" src=assets/pictures/${photographe.replace(' ', '-')}/${ligne.video} type="video/mp4">>`
+    if (ligne.image) card2 = card2 + `<img role="image" tabindex=${compteur} id="image${compteur}" alt="${ligne.title}" src=assets/pictures/${photographe.replace(' ', '-')}/${ligne.image}>`
+    if (ligne.video) card2 = card2 + `<video role="vidéo" tabindex=${compteur} id="image${compteur}" alt="${ligne.title}" src=assets/pictures/${photographe.replace(' ', '-')}/${ligne.video} type="video/mp4">>`
 
 
     card2 = card2 + `
@@ -130,32 +133,40 @@ function templatePicturesPhotographer(data, photographe, order) {
       </div>
     </div>`;
   });
+
+  card2 = card2 + `<div class="likesWindows"><h4>Total de likes</h3><p  class="totalLikes">${likeCompteur}</p></div>`;
   let card = card1 + card2 + `</div>`;
   $wrapper.innerHTML = card;
   photographersSection.appendChild($wrapper);
 
 
 
-  //création des ecouteurs sur les médias
+  //création des ecouteurs sur les médias et sur les likes
   compteur = 0;
+
+  const likeArray = [];
+
   data.forEach((ligne) => {
     compteur++;
+    likeArray[compteur] = 0;
+    const num = compteur;
 
-    console.log(`image${compteur}`);
-    const num=compteur;
     document.getElementById(`image${compteur}`).addEventListener("click", function () { openLightModal(num, data); });
+    
     document.getElementById(`${compteur}`).addEventListener("click", function (event) {
-      console.log(ligne.likes)
       ligne.likes += 1;
-      console.log(ligne.likes)
-      console.log(event.target.id)
-      //document.getElementById(`p${compteur}`).innerHTML = ligne.likes
+      //incrémentation du like selectionné à condition que celui ci n'est pas été déjà incrémenté
+      if (likeArray[event.target.id] != 1){
       document.getElementById(`p${event.target.id}`).innerHTML = ligne.likes;
-    });
+      likeCompteur++;
+      document.querySelector(".totalLikes").innerHTML = likeCompteur;
+      }
+      likeArray[event.target.id] = 1;
+      
+      console.log(likeCompteur);
+      
+     });
   });
-
-
-
 }
 
 

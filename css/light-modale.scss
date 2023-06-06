@@ -1,3 +1,5 @@
+@import url("variables.css");
+
 #light_modal {
     display: none;
     align-items: center;
@@ -21,12 +23,12 @@
         margin-left: 10px;
         grid-area: 3 / 4 / 4 / 5;
         font-size:42px;
-        color: #901C1C;
+        color: $color-brown;
     }
 
     span {
         grid-area: 6 / 3 / 7 / 4;
-        color: #901C1C;
+        color: $color-brown;
         font-size: 24px;
     }
 
@@ -36,7 +38,7 @@
         justify-content: center;
         grid-area: 4 / 4 / 5 / 5;
         font-size: 48px;
-        color: #901C1C;
+        color: $color-brown;
     }
 
     .fa-chevron-left {
@@ -45,7 +47,7 @@
         justify-content: center;
         grid-area: 4 / 2 / 5 / 3;
         font-size: 48px;
-        color: #901C1C;
+        color: $color-brown;
     }
 }
 
