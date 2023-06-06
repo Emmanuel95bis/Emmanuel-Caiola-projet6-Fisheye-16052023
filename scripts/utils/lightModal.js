@@ -32,8 +32,6 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
    
     imageInOrder.forEach(element => {
 
-        
-
         console.log(element);
         //insertion de toutes les photos en display "none" sauf l'élue
         if (element.image) {
@@ -59,25 +57,20 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
             mp4.setAttribute("alt", element.title);
             imageNum != compteur ? mp4.style.display = "none" : mp4.style.display = "flex";
             document.getElementById('light_modal_picture').appendChild(mp4);
-
             
         }
         compteur++;
     });
     
-
     const moveOnAfter = () => {
         document.getElementById(`media${imageNum}`).style.display = "none";
         imageNum++;
         if (imageNum > imageInOrder.length - 1) imageNum = 0;
         document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
         document.getElementById(`media${imageNum}`).style.display = "flex";
-        
-        
     }
 
     const moveOnBefore = () => {
-  
         document.getElementById(`media${imageNum}`).style.display = "none";
         imageNum--;
         if (imageNum < 0) imageNum = imageInOrder.length - 1;
@@ -89,34 +82,33 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
 
     const closeLightModal = () => {
         document.getElementById("light_modal").style.display = "none";
-       
-        document.getElementById("light_modal_picture").innerHTML="";
-    
+        document.getElementById("light_modal_picture").innerHTML = "";
         chevronRight.removeEventListener("click", moveOnAfter);
-      
+        chevronLeft.removeEventListener("click", moveOnBefore);
+        document.removeEventListener('keydown', keydownEventListener);
         document.querySelector("main").style.display = "block";
         document.querySelector("header").style.display = "block";
         document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
-
+        //document.getElementById("image1").focus();
     }
 
-    
-    chevronRight.addEventListener("click", moveOnAfter);
-    chevronLeft.addEventListener("click", moveOnBefore);
-    close.addEventListener("click", closeLightModal);
-
-    //ecouter sur les touches de clavier
-    document.addEventListener('keydown', function(e) {
-        e.preventDefault();
-         if (e.key == "ArrowRight") {
-            moveOnAfter()
-        } else if (e.key== "ArrowLeft") {
-            moveOnBefore()
-        }else if (e.key== "Escape") {
-            closeLightModal()
+    function keydownEventListener(e) {
+        
+        if (e.key == "ArrowRight") {
+            moveOnAfter();
+        } else if (e.key == "ArrowLeft") {
+            moveOnBefore();
+        } else if (e.key == "Escape") {
+            closeLightModal();
+        }
     }
-      
 
-     })
+ 
+     document.addEventListener('keydown', keydownEventListener);
+     chevronRight.addEventListener("click", moveOnAfter);
+     chevronLeft.addEventListener("click", moveOnBefore);
+     close.addEventListener("click", closeLightModal);
+
+
     }
      
