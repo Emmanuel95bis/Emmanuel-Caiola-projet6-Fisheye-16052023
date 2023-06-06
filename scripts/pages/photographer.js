@@ -15,8 +15,8 @@ async function openLightModal(ImageNum, imageInOrder) {
   console.log(ImageNum);
   console.log(imageInOrder);
   const photographerData = await getThePhotographer(thePhotographer)
-  ImageNum=ImageNum-1;
-  displayLightModal(ImageNum,imageInOrder,photographerData[0].name);
+  ImageNum = ImageNum - 1;
+  displayLightModal(ImageNum, imageInOrder, photographerData[0].name);
 }
 
 
@@ -25,8 +25,7 @@ async function openLightModal(ImageNum, imageInOrder) {
 function activationFiltre() {
   for (let i = 1; i < 12; i++) {
     //chaine = `option${i}`;
-    chaine = '';
-    console.log(`chaine1 :${i} ${chaine}`);
+    chaine = "";
     if ((i != 8) || (i != 9)) { chaine = document.querySelector(`#option${i}`) };
   }
 
@@ -53,13 +52,13 @@ function activationFiltre() {
 async function init() {
   // Récupère les datas des photographes
   const photographerData = await getThePhotographer(thePhotographer);
- // const pictures = await getThePictures(thePhotographer);
+  // const pictures = await getThePictures(thePhotographer);
 
   //mise en page des informations du photographe
   templateDataPhotographer(photographerData);
   templateFiltre();
   activationFiltre();
-  };
+};
 
 //gestion de présence des éléments du menu filtre
 //en fonction des écouteurs.
@@ -140,9 +139,6 @@ function modifyFiltre11() {
   let tableau11 = [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0];
   appearDisepear(tableau11);
 }
-
-
-
 
 init();
 
