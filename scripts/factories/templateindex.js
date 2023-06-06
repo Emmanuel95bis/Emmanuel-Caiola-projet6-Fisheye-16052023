@@ -2,16 +2,16 @@ function photographerFactory(data) {
     const { name, portrait,city,country,tagline,price,id } = data;
     const picture = `assets/photographers/${portrait}`;
 
-
-
-
     
-    function getUserCardDOM() {
+
+
+
+   function getUserCardDOM(index) {
         lienID = `photographer.html?id=${id}`;
         const article = document.createElement( 'article' );
         const lienA = document.createElement('a');
         lienA.href = lienID;
-        lienA.setAttribute("id",`${name}`);
+        article.setAttribute("id",`${index}`);
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.setAttribute("alt", `Photographe ${name}`);
@@ -28,7 +28,6 @@ function photographerFactory(data) {
         p2.textContent = `${price}€/jour`;
         lienA.appendChild(img);
         lienA.appendChild(h2);
-        //article.appendChild(saisie);
         article.appendChild(lienA);
         article.appendChild(p0);     
         article.appendChild(p1);
@@ -37,3 +36,4 @@ function photographerFactory(data) {
     }
     return { name, picture,tagline,price, getUserCardDOM }
 }
+
