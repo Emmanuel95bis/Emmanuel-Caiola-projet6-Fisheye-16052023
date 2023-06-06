@@ -98,7 +98,7 @@ body {
     &-image {
         width: 350px;
         height: 300px;
-    }
+            }
 
     &-image img,
     video {
@@ -107,8 +107,15 @@ body {
         height: 300px;
         border-radius: 5px;
         cursor:pointer;
+      
     }
 
+}
+
+.photos-image img:focus{
+    transform: scale(1.05);
+    border : 3px solid red;
+    opacity: 0.8;
 }
 
 .photos-card {

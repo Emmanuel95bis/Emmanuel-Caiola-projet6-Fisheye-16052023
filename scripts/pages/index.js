@@ -10,15 +10,16 @@ async function displayData(photographers) {
         const userCardDOM = photographerModel.getUserCardDOM(index);
         photographersSection.appendChild(userCardDOM);
 
-        //ajout d'un addeventlistener sur liens pour lancer la page du photographe
-        document.querySelector(".photographer_section")
-            .addEventListener("keydown", function (event) {
-                console.log(event);
-                if (event.key === "Enter") {
-                    console.log(event.target.getAttribute("href"));
-                    window.location.href = event.target.getAttribute("href");
-                }
-            });
+
+        const photographerSection = document.querySelector(".photographer_section");
+
+        photographerSection.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                const href = event.target.getAttribute("href");
+                console.log(href);
+                window.location.href = href;
+            }
+        });
     });
 };
 

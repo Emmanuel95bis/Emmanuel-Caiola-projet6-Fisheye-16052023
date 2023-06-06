@@ -58,7 +58,9 @@ async function init() {
   templateDataPhotographer(photographerData);
   templateFiltre();
   activationFiltre();
-};
+
+
+}
 
 //gestion de présence des éléments du menu filtre
 //en fonction des écouteurs.
@@ -77,36 +79,56 @@ function appearDisepear(tableau) {
 
 }
 
+function validationKeyboardPicture(pictures) {
+  const photoSection = document.querySelector(".photos");
+
+  photoSection.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      console.log(event.target);
+      const id = event.target.getAttribute("id");
+      const chaine = id.substr(5);
+      openLightModal(chaine, pictures);
+    }
+  });
+};
+
+
+
+
 //fonction de configuration du filtre
 async function modifyFiltre1() {
   let tableau1 = [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0];
   appearDisepear(tableau1);
-
   // ordonner les photos les plus populaires au moins populaires
   const photographerData = await getThePhotographer(thePhotographer);
   const pictures = await getThePictures(thePhotographer);
   templatePicturesPhotographer(pictures, photographerData[0].name, 1);
+
+  const photoSection = document.querySelector(".photos");
+
+  validationKeyboardPicture(pictures);
 }
 
 async function modifyFiltre2() {
-  console.log("2222222");
+
   let tableau2 = [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0];
   appearDisepear(tableau2);
   // ordonner les photos par titre
   const photographerData = await getThePhotographer(thePhotographer);
   const pictures = await getThePictures(thePhotographer);
   templatePicturesPhotographer(pictures, photographerData[0].name, 2);
+  validationKeyboardPicture(pictures);
 
 }
 
 async function modifyFiltre3() {
   let tableau3 = [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0];
   appearDisepear(tableau3);
-
   // ordonner les photos par titre
   const photographerData = await getThePhotographer(thePhotographer);
   const pictures = await getThePictures(thePhotographer);
   templatePicturesPhotographer(pictures, photographerData[0].name, 3);
+  validationKeyboardPicture(pictures);
 }
 
 function modifyFiltre4() {

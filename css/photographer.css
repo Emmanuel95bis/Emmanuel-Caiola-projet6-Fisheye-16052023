@@ -106,6 +106,12 @@ body {
   cursor: pointer;
 }
 
+.photos-image img:focus {
+  transform: scale(1.05);
+  border: 3px solid red;
+  opacity: 0.8;
+}
+
 .photos-card .photos-content {
   display: flex;
   flex-direction: row;
