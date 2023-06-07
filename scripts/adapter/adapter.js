@@ -13,7 +13,6 @@ async function getThePhotographer(dataId) {
   const Dataphotographers = await reponse.json();
   const photographers = Dataphotographers.photographers;
   const lePhotographe = photographers.filter(user => user.id == dataId);
-  console.log(`1111:${lePhotographe} `);
   return (lePhotographe);
 }
 

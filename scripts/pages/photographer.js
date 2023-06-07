@@ -11,9 +11,6 @@ async function opencontact() {
 
 //ouverture light modale
 async function openLightModal(ImageNum, imageInOrder) {
-  console.log("open light modal is now");
-  console.log(ImageNum);
-  console.log(imageInOrder);
   const photographerData = await getThePhotographer(thePhotographer)
   ImageNum = ImageNum - 1;
   displayLightModal(ImageNum, imageInOrder, photographerData[0].name);
@@ -84,7 +81,6 @@ function validationKeyboardPicture(pictures) {
 
   photoSection.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-      console.log(event.target);
       const id = event.target.getAttribute("id");
       const chaine = id.substr(5);
       openLightModal(chaine, pictures);

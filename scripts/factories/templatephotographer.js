@@ -1,29 +1,5 @@
 
-
-function templateDataPhotographer(data) {
-
-  const sectionPhotographers = document.querySelector(".article");
-  const wrapper = document.createElement('div')
-  const test = document.createElement('p')
-  wrapper.classList.add('photograph-header')
-
-  const card = `<div class="photograph-informations">
-    <h1>${data[0].name}</h1>
-    <div class="photograph-cadre">
-    <h2>${data[0].city}</h2>
-    <p>${data[0].tagline}</p>
-    </div>
-  </div>
-  <button role="contactez moi" class="contact_button" onclick="displayModal()">Contactez-moi</button>
-  <img src=assets/photographers/${data[0].portrait}>`
-
-  wrapper.innerHTML = card;
-  test.textContent = "tesgdfgdfgdfgdfgdgdfgdfgdgdt";
-  sectionPhotographers.appendChild(test);
-  sectionPhotographers.appendChild(wrapper);
-}
-
-
+//mise en place du filtre
 function templateFiltre() {
   const filtre = document.querySelector('main');
   const wrapper = document.createElement('div');
@@ -58,9 +34,7 @@ function templateFiltre() {
 }
 
 
-
-
-
+//affichage des information du photographe
 function templateDataPhotographer(data) {
 
   const photographersSection = document.querySelector("main");
@@ -81,7 +55,7 @@ function templateDataPhotographer(data) {
   photographersSection.appendChild($wrapper);
 }
 
-
+//mise en place des images du photographe
 function templatePicturesPhotographer(data, photographe, order) {
   //effacement de tous les éléments photos
   const elements = document.getElementsByClassName("photos");
@@ -162,8 +136,6 @@ function templatePicturesPhotographer(data, photographe, order) {
       document.querySelector(".totalLikes").innerHTML = likeCompteur;
       }
       likeArray[event.target.id] = 1;
-      
-      console.log(likeCompteur);
       
      });
   });

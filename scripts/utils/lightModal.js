@@ -6,11 +6,9 @@ const addTitle = document.querySelector('.titre');
 
 
 function getSize(media) {
-    console.log(media);
     const img = document.getElementById(media);
     const width = img.clientWidth;
     const height = img.clientHeight;
-    console.log("Width =" + width + ", " + "Height=" + height);
     width < height ? img.setAttribute("class", "portrait") : img.setAttribute("class", "paysage");
 }
 
@@ -35,9 +33,10 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         addTitle.setAttribute('aria-label',titre);
     }
 
+  
+
     imageInOrder.forEach(element => {
 
-        console.log(element);
         //insertion de toutes les photos en display "none" sauf l'élue
         if (element.image) {
             const img = document.createElement('img');
@@ -45,7 +44,6 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
             img.setAttribute("id", `media${compteur}`);
             img.setAttribute("alt", element.title);
             img.style.display = "none";
-            console.log(`compteur :${compteur} numero image : ${imageNum}`);
             img.style.display = "flex";
             document.getElementById('light_modal_picture').appendChild(img);
             //insérer la classe paysage ou portrait en fonction de la taille de l'image
@@ -71,18 +69,18 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
 
         }
         compteur++;
-    });
+  });
 
+  //afficher image suivante
     const moveOnAfter = () => {
         document.getElementById(`media${imageNum}`).style.display = "none";
         imageNum++;
         if (imageNum > imageInOrder.length - 1) imageNum = 0;
-        //document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
         document.getElementById(`media${imageNum}`).style.display = "flex";
         displayTitle(imageInOrder[imageNum].title);
- 
-    }
+     }
 
+//afficher image précédente     
     const moveOnBefore = () => {
         document.getElementById(`media${imageNum}`).style.display = "none";
         imageNum--;
@@ -101,8 +99,7 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         document.querySelector("main").style.display = "block";
         document.querySelector("header").style.display = "block";
         document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
-        //document.getElementById("image1").focus();
-    }
+        }
 
     function keydownEventListener(e) {
 
@@ -115,11 +112,9 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         }
     }
 
-
     document.addEventListener('keydown', keydownEventListener);
     chevronRight.addEventListener("click", moveOnAfter);
     chevronLeft.addEventListener("click", moveOnBefore);
     close.addEventListener("click", closeLightModal);
-
 
 }
