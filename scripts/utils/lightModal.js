@@ -3,14 +3,14 @@ const chevronLeft = document.querySelector('.fa-chevron-left');
 const close = document.querySelector('.fa-times');
 
 
-function getSize(media){
+function getSize(media) {
     console.log(media);
     const img = document.getElementById(media);
     const width = img.clientWidth;
     const height = img.clientHeight;
     console.log("Width =" + width + ", " + "Height=" + height);
-    width<height?img.setAttribute("class", "portrait"):img.setAttribute("class", "paysage");
-  }
+    width < height ? img.setAttribute("class", "portrait") : img.setAttribute("class", "paysage");
+}
 
 
 
@@ -19,7 +19,7 @@ function getSize(media){
 
 
 function displayLightModal(imageNum, imageInOrder, lePhotographe) {
-    
+
 
     document.getElementById("light_modal").style.display = "flex";
 
@@ -29,7 +29,7 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
     document.querySelector("main").style.display = "none";
 
     compteur = 0;
-   
+
     imageInOrder.forEach(element => {
 
         console.log(element);
@@ -39,14 +39,14 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
             img.src = `assets/pictures/${lePhotographe.replace(' ', '-')}/${element.image}`;
             img.setAttribute("id", `media${compteur}`);
             img.setAttribute("alt", element.title);
-            img.style.display = "none" ;
-            console.log(`compteur :${compteur} numero image : ${imageNum}` );
+            img.style.display = "none";
+            console.log(`compteur :${compteur} numero image : ${imageNum}`);
             img.style.display = "flex";
             document.getElementById('light_modal_picture').appendChild(img);
             //insérer la classe paysage ou portrait en fonction de la taille de l'image
             getSize(`media${compteur}`);
             imageNum != compteur ? img.style.display = "none" : img.style.display = "flex";
-            }
+        }
 
         if (element.video) {
             const mp4 = document.createElement("video");
@@ -57,11 +57,11 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
             mp4.setAttribute("alt", element.title);
             imageNum != compteur ? mp4.style.display = "none" : mp4.style.display = "flex";
             document.getElementById('light_modal_picture').appendChild(mp4);
-            
+
         }
         compteur++;
     });
-    
+
     const moveOnAfter = () => {
         document.getElementById(`media${imageNum}`).style.display = "none";
         imageNum++;
@@ -78,8 +78,13 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
     }
 
-    document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
-
+    //document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
+    const addTitle = document.querySelector('.titre');
+    addTitle.removeAttribute('aria-label');
+    addTitle.innerHTML = imageInOrder[imageNum].title;
+   // addTitle.setAttribute('aria-label',addTitle.innerHTML);
+    //addTitle.setAttribute('aria-label',imageInOrder[imageNum].title);
+   
     const closeLightModal = () => {
         document.getElementById("light_modal").style.display = "none";
         document.getElementById("light_modal_picture").innerHTML = "";
@@ -93,7 +98,7 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
     }
 
     function keydownEventListener(e) {
-        
+
         if (e.key == "ArrowRight") {
             moveOnAfter();
         } else if (e.key == "ArrowLeft") {
@@ -103,12 +108,11 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         }
     }
 
- 
-     document.addEventListener('keydown', keydownEventListener);
-     chevronRight.addEventListener("click", moveOnAfter);
-     chevronLeft.addEventListener("click", moveOnBefore);
-     close.addEventListener("click", closeLightModal);
+
+    document.addEventListener('keydown', keydownEventListener);
+    chevronRight.addEventListener("click", moveOnAfter);
+    chevronLeft.addEventListener("click", moveOnBefore);
+    close.addEventListener("click", closeLightModal);
 
 
-    }
-     
+}
