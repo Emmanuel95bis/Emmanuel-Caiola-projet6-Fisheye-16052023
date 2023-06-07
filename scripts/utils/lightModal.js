@@ -1,6 +1,8 @@
 const chevronRight = document.querySelector('.fa-chevron-right');
 const chevronLeft = document.querySelector('.fa-chevron-left');
 const close = document.querySelector('.fa-times');
+const addTitle = document.querySelector('.titre');
+
 
 
 function getSize(media) {
@@ -22,13 +24,16 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
 
 
     document.getElementById("light_modal").style.display = "flex";
-
     document.querySelector("#light_modal_picture").innerHTML = '';
-
     document.querySelector("header").style.display = "none";
     document.querySelector("main").style.display = "none";
 
     compteur = 0;
+
+    function displayTitle(titre){
+        addTitle.innerHTML = titre;
+        addTitle.setAttribute('aria-label',titre);
+    }
 
     imageInOrder.forEach(element => {
 
@@ -45,7 +50,10 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
             document.getElementById('light_modal_picture').appendChild(img);
             //insérer la classe paysage ou portrait en fonction de la taille de l'image
             getSize(`media${compteur}`);
-            imageNum != compteur ? img.style.display = "none" : img.style.display = "flex";
+            if(imageNum != compteur)  img.style.display = "none" 
+            else{ img.style.display = "flex"
+            displayTitle(element.title);
+        };
         }
 
         if (element.video) {
@@ -55,7 +63,10 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
             mp4.controls = true;
             mp4.setAttribute("id", `media${compteur}`);
             mp4.setAttribute("alt", element.title);
-            imageNum != compteur ? mp4.style.display = "none" : mp4.style.display = "flex";
+            if(imageNum != compteur) mp4.style.display = "none" 
+            else{ mp4.style.display = "flex"
+            displayTitle(element.title)
+        };
             document.getElementById('light_modal_picture').appendChild(mp4);
 
         }
@@ -66,8 +77,10 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         document.getElementById(`media${imageNum}`).style.display = "none";
         imageNum++;
         if (imageNum > imageInOrder.length - 1) imageNum = 0;
-        document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
+        //document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
         document.getElementById(`media${imageNum}`).style.display = "flex";
+        displayTitle(imageInOrder[imageNum].title);
+ 
     }
 
     const moveOnBefore = () => {
@@ -76,15 +89,9 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         if (imageNum < 0) imageNum = imageInOrder.length - 1;
         document.getElementById(`media${imageNum}`).style.display = "flex";
         document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
+        displayTitle(imageInOrder[imageNum].title);
     }
-
-    //document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
-    const addTitle = document.querySelector('.titre');
-    addTitle.removeAttribute('aria-label');
-    addTitle.innerHTML = imageInOrder[imageNum].title;
-   // addTitle.setAttribute('aria-label',addTitle.innerHTML);
-    //addTitle.setAttribute('aria-label',imageInOrder[imageNum].title);
-   
+ 
     const closeLightModal = () => {
         document.getElementById("light_modal").style.display = "none";
         document.getElementById("light_modal_picture").innerHTML = "";
