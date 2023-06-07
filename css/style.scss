@@ -40,6 +40,7 @@ h1 {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        text-decoration: none;
 
         h2 {
             color: #D3573C;
@@ -59,11 +60,17 @@ h1 {
 
 }
 
+.photographer_section a:focus{
+    transform: scale(1.05);
+    border : 2px solid red;
+    opacity: 0.8;
+}
+
 #main>div>article>p:nth-child(2) {
     font-size: 13px;
     font-weight: 400;
     color: $color-brown;
-    margin: 0px;
+    margin-bottom: 0px;
 }
 
 #main>div>article>p:nth-child(3) {
@@ -90,7 +97,5 @@ h1 {
 }
 
 #main > div > article > a{
-align-items: center;
-display: flex;
-flex-direction: column;
+
 }
