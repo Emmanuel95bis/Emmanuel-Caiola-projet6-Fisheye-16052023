@@ -1,5 +1,5 @@
 
-
+//récupération des datas photographes pour la première page
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
     const index = 0;
@@ -11,7 +11,7 @@ async function displayData(photographers) {
 
 
         const photographerSection = document.querySelector(".photographer_section");
-
+        //activation de la touche entrer pour selectionner au clavier
         photographerSection.addEventListener("keydown", function (event) {
             if (event.key === "Enter") {
                 const href = event.target.getAttribute("href");

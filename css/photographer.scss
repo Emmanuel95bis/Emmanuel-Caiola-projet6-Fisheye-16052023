@@ -7,6 +7,7 @@ $color-brown-light: #DB8876;
 
 body {
     max-width: 1440px;
+    margin: auto;
 }
 
 
@@ -165,7 +166,7 @@ body {
    border-radius: 5px;
     position: fixed;
     bottom: 0px;
-    right: 92px;
+    right: 50px;
     background-color: $color-brown-light;
     display: flex;
     flex-direction: row;

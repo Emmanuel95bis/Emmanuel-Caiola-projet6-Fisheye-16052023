@@ -6,6 +6,7 @@ $color-brown:#901C1C;
 
 body {
     font-family: "DM Sans", sans-serif;
+    margin: auto;
     margin: 0;
 }
 
@@ -95,8 +96,4 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-#main > div > article > a{
-
 }

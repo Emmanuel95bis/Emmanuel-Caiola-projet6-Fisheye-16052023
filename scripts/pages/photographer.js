@@ -79,6 +79,7 @@ function appearDisepear(tableau) {
 function validationKeyboardPicture(pictures) {
   const photoSection = document.querySelector(".photos");
 
+  //ajout écouteur évènement pour la touche entrer pour sellectionner au clavier
   photoSection.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       const id = event.target.getAttribute("id");

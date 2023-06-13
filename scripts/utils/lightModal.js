@@ -71,7 +71,7 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         compteur++;
   });
 
-  //afficher image suivante
+  //afficher l'image suivante
     const moveOnAfter = () => {
         document.getElementById(`media${imageNum}`).style.display = "none";
         imageNum++;
@@ -80,7 +80,7 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         displayTitle(imageInOrder[imageNum].title);
      }
 
-//afficher image précédente     
+//afficher l'image précédente     
     const moveOnBefore = () => {
         document.getElementById(`media${imageNum}`).style.display = "none";
         imageNum--;
@@ -89,7 +89,8 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
         displayTitle(imageInOrder[imageNum].title);
     }
- 
+
+    //fermeture de la light modale
     const closeLightModal = () => {
         document.getElementById("light_modal").style.display = "none";
         document.getElementById("light_modal_picture").innerHTML = "";
@@ -101,8 +102,8 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
         document.querySelector('.titre').innerHTML = imageInOrder[imageNum].title;
         }
 
+    //activation de l'écoute d'évènements pour la saisie clavier
     function keydownEventListener(e) {
-
         if (e.key == "ArrowRight") {
             moveOnAfter();
         } else if (e.key == "ArrowLeft") {
@@ -116,5 +117,4 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
     chevronRight.addEventListener("click", moveOnAfter);
     chevronLeft.addEventListener("click", moveOnBefore);
     close.addEventListener("click", closeLightModal);
-
 }

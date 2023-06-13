@@ -5,7 +5,6 @@ function templateFiltre() {
   const wrapper = document.createElement('div');
   wrapper.classList.add('sortof');
 
-
   const scriptFilter = `
   <label>Trier par</label>
   <div class="filtre">
@@ -34,9 +33,8 @@ function templateFiltre() {
 }
 
 
-//affichage des information du photographe
+//affichage des informations du photographe
 function templateDataPhotographer(data) {
-console.log(data);
   const photographersSection = document.querySelector("main");
   const $wrapper = document.createElement('div')
   $wrapper.classList.add('photograph-header')
@@ -56,7 +54,7 @@ console.log(data);
 }
 
 //mise en place des images du photographe
-function templatePicturesPhotographer(data, photographe, order,photographerData) {
+function templatePicturesPhotographer(data, photographe, order, photographerData) {
   //effacement de tous les éléments photos
   const elements = document.getElementsByClassName("photos");
   while (elements.length > 0) elements[0].remove();
@@ -107,9 +105,7 @@ function templatePicturesPhotographer(data, photographe, order,photographerData)
       </div>
     </div>`;
   });
-console.log("xxxxxxx");
-  console.log(photographerData[0].price);
-    
+
   card2 = card2 + `<div class="likesWindows"><span class="totalLikes">${likeCompteur}</span><i role="coeur like" class="fa-solid fa-heart"></i><span>${photographerData[0].price}€/ jour</span></div> `;
   let card = card1 + card2 + `</div>`;
   $wrapper.innerHTML = card;
@@ -128,18 +124,18 @@ console.log("xxxxxxx");
     const num = compteur;
 
     document.getElementById(`image${compteur}`).addEventListener("click", function () { openLightModal(num, data); });
-    
+
     document.getElementById(`${compteur}`).addEventListener("click", function (event) {
       ligne.likes += 1;
       //incrémentation du like selectionné à condition que celui ci n'est pas été déjà incrémenté
-      if (likeArray[event.target.id] != 1){
-      document.getElementById(`p${event.target.id}`).innerHTML = ligne.likes;
-      likeCompteur++;
-      document.querySelector(".totalLikes").innerHTML = likeCompteur;
+      if (likeArray[event.target.id] != 1) {
+        document.getElementById(`p${event.target.id}`).innerHTML = ligne.likes;
+        likeCompteur++;
+        document.querySelector(".totalLikes").innerHTML = likeCompteur;
       }
       likeArray[event.target.id] = 1;
-      
-     });
+
+    });
   });
 }
 

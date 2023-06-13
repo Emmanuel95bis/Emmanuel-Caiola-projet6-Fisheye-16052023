@@ -1,11 +1,10 @@
+
+//fonction de création des élément du DOM de la page principale avec déclaration de variables
 function photographerFactory(data) {
     const { name, portrait, city, country, tagline, price, id } = data;
     const picture = `assets/photographers/${portrait}`;
 
-
-
-
-    //fonction de création des élément du DOM de la page pricipale
+    //fonction de création des élément du DOM de la page principale
     function getUserCardDOM(index) {
 
         //création du lien avec passage du code photographe dans l'adresse
