@@ -36,7 +36,7 @@ function templateFiltre() {
 
 //affichage des information du photographe
 function templateDataPhotographer(data) {
-
+console.log(data);
   const photographersSection = document.querySelector("main");
   const $wrapper = document.createElement('div')
   $wrapper.classList.add('photograph-header')
@@ -56,7 +56,7 @@ function templateDataPhotographer(data) {
 }
 
 //mise en place des images du photographe
-function templatePicturesPhotographer(data, photographe, order) {
+function templatePicturesPhotographer(data, photographe, order,photographerData) {
   //effacement de tous les éléments photos
   const elements = document.getElementsByClassName("photos");
   while (elements.length > 0) elements[0].remove();
@@ -107,8 +107,10 @@ function templatePicturesPhotographer(data, photographe, order) {
       </div>
     </div>`;
   });
-
-  card2 = card2 + `<div class="likesWindows"><h4>Total de likes</h3><p  class="totalLikes">${likeCompteur}</p></div>`;
+console.log("xxxxxxx");
+  console.log(photographerData[0].price);
+    
+  card2 = card2 + `<div class="likesWindows"><span class="totalLikes">${likeCompteur}</span><i role="coeur like" class="fa-solid fa-heart"></i><span>${photographerData[0].price}€/ jour</span></div> `;
   let card = card1 + card2 + `</div>`;
   $wrapper.innerHTML = card;
   photographersSection.appendChild($wrapper);

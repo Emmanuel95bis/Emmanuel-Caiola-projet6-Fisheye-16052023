@@ -2,7 +2,8 @@
 @import url("filtre.css");
 @import url("contactezmoi-modale.css");
 
-$color-brown:#901C1C;
+$color-brown: #901C1C;
+$color-brown-light: #DB8876;
 
 body {
     max-width: 1440px;
@@ -58,7 +59,7 @@ body {
     justify-content: space-between;
     background-color: #FAFAFA;
     height: 300px;
-   }
+}
 
 .photograph-cadre {
     border: 2px solid #95FFF9;
@@ -95,10 +96,11 @@ body {
         display: flex;
         flex-direction: column;
     }
+
     &-image {
         width: 350px;
         height: 300px;
-            }
+    }
 
     &-image img,
     video {
@@ -106,25 +108,25 @@ body {
         width: 350px;
         height: 300px;
         border-radius: 5px;
-        cursor:pointer;
-      }
+        cursor: pointer;
+    }
 
 }
 
-.photos-image img:focus{
+.photos-image img:focus {
     transform: scale(1.05);
-    border : 3px solid red;
+    border: 3px solid red;
     opacity: 0.8;
 }
 
 .photos-card {
-     .photos-content {
+    .photos-content {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
-     h3 {
+    h3 {
         font-size: 24px;
         color: $color-brown;
         font-weight: 400;
@@ -147,30 +149,51 @@ body {
     font-size: 20px;
     width: 20px;
     margin-top: 14px;
-    cursor:pointer;
-    
+    cursor: pointer;
+
 }
+
 .photos-content i:active {
     transition-duration: 100ms;
     color: #160af3;
 }
 
 
-.likesWindows{
-    position: absolute;
-    top: -161px;
-    right: 42px;
-    border: 4px solid $color-brown
+.likesWindows {
+    width: 376px;
+    height: 75px;
+   border-radius: 5px;
+    position: fixed;
+    bottom: 0px;
+    right: 92px;
+    background-color: $color-brown-light;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    span {
+        font-family: "DM Sans", sans-serif;
+        font-size: 24px;
+        font-weight: 500;
+        margin-left: 42px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    i {
+        margin-left: 10px;
+        color: black;
+        font-size: 20px;
+    }
+    span:nth-child(3){
+        margin-left: 110px;
+    }
 }
 
-.likesWindows h4{
-    font-size: 18px;
-    margin:5px;
-}
-
-.totalLikes{
-font-size: 18px;
-margin-left:42px;
-margin-top:0;
-margin-bottom: 0;
+.likesWindows span {
+    font-size: 24px;
+    font-weight: 500;
+    margin-left: 42px;
+    margin-top: 0;
+    margin-bottom: 0;
 }

@@ -98,7 +98,7 @@ async function modifyFiltre1() {
   // ordonner les photos les plus populaires au moins populaires
   const photographerData = await getThePhotographer(thePhotographer);
   const pictures = await getThePictures(thePhotographer);
-  templatePicturesPhotographer(pictures, photographerData[0].name, 1);
+  templatePicturesPhotographer(pictures, photographerData[0].name, 1,photographerData);
 
   const photoSection = document.querySelector(".photos");
 
@@ -112,7 +112,7 @@ async function modifyFiltre2() {
   // ordonner les photos par titre
   const photographerData = await getThePhotographer(thePhotographer);
   const pictures = await getThePictures(thePhotographer);
-  templatePicturesPhotographer(pictures, photographerData[0].name, 2);
+  templatePicturesPhotographer(pictures, photographerData[0].name, 2,photographerData);
   validationKeyboardPicture(pictures);
 
 }
@@ -123,7 +123,7 @@ async function modifyFiltre3() {
   // ordonner les photos par titre
   const photographerData = await getThePhotographer(thePhotographer);
   const pictures = await getThePictures(thePhotographer);
-  templatePicturesPhotographer(pictures, photographerData[0].name, 3);
+  templatePicturesPhotographer(pictures, photographerData[0].name, 3,photographerData);
   validationKeyboardPicture(pictures);
 }
 

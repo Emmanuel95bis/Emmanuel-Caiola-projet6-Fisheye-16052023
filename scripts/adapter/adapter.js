@@ -16,7 +16,7 @@ async function getThePhotographer(dataId) {
   return (lePhotographe);
 }
 
-//recupération informations du photographe correspondant à l'ID
+//recupération desphotographies du photographe correspondant à l'ID
 async function getThePictures(dataId) {
   const reponse = await fetch("/data/photographers.json");
   const Dataphotographers = await reponse.json();
