@@ -26,17 +26,17 @@
                 <h2 aria-label="Contactez moi">Contactez-moi</h2>
                 <img alt="Bouton de fermeture de la modale" src="assets/icons/close.svg" onclick="closeModal()" />
             </header>
-            <form role="formulaire de contact">
+            <form role="formulaire de contact" name="formContactMe">
                 <div>
                     <h3 id="lePhotographe"></h3>
-                    <label for="nom" aria-label="Saisissez votre nom">Nom</label>
-                    <input aria-label="Saisir votre nom" type="text" name="nom">
-                    <label for="prenom" aria-label="Saisissez votre prénom">Prénom</label>
-                    <input  aria-label="Saisir votre prénom" type="text" name="prenom">
-                    <label for="email" aria-label="Saisissez votre Email">Email</label>
-                    <input aria-label="Saisir votre adresse email" type="email" name="email">
-                    <label for="message" aria-label="Saisissez votre message">Votre message</label>
-                    <textarea aria-label="Ajouter un message" name="message" rows="6"></textarea>
+                    <label for="inputLastName" aria-label="Saisissez votre nom">Saisissez votre nom :</label>
+                    <input id="inputLastName" aria-label="Saisir votre nom" type="text" name="inputLastName">
+                    <label for="inputFirstName" aria-label="Saisissez votre prénom">Saisissez votre prénom :</label>
+                    <input id="inputFirstName" aria-label="Saisir votre prénom" type="text" name="inputFirstName">
+                    <label for="inputEmail" aria-label="Saisissez votre Email">Saisissez votre Email :</label>
+                    <input id="inputEmail" aria-label="Saisir votre adresse email" type="email" name="inputEmail">
+                    <label for="message" aria-label="Saisissez votre message">Votre message :</label>
+                    <textarea aria-label="Ajouter un message" id="message" name="message" rows="6"></textarea>
                 </div>
             </form>
             <button class="contact_button" onclick="closeModal()">Envoyer</button>
@@ -45,15 +45,15 @@
     <div id="light_modal">
         <div class="light_modal_content">
 
-            <i  role="visualiser la photo précédente" class="fa-solid fa-chevron-left" tabindex="0"></i>
+            <strong role="visualiser la photo précédente" class="fa-solid fa-chevron-left" tabindex="0"></strong>
             <div class="light_modal_center">
                 <div id="light_modal_picture"></div>
                 <span aria-label="la photographie" class="titre"></span>
             </div>
             <div class="light_modal_right">
-            <i role="fermer la fenêtre" class="fa fa-times" aria-hidden="true"  tabindex="2"></i>
-            <i role="visualiser la photo suivante" class="fa-solid fa-chevron-right" tabindex="1"></i>
-           </div>
+                <strong role="fermer la fenêtre" class="fa fa-times" aria-hidden="true" tabindex="2"></strong>
+                <strong role="visualiser la photo suivante" class="fa-solid fa-chevron-right" tabindex="1"></strong>
+            </div>
         </div>
     </div>
 
