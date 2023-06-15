@@ -18,6 +18,7 @@ function closeModal() {
 }
 
 
+
 const inputLN = document.getElementById("inputLastName");
 const inputFN = document.getElementById("inputFirstName");
 const inputEmail = document.getElementById("inputEmail");
@@ -28,4 +29,5 @@ submitButton.addEventListener("click", function() {
   console.log(inputLN.value);
   console.log(inputFN.value);
   console.log(inputEmail.value);
+  closeModal();
 });
