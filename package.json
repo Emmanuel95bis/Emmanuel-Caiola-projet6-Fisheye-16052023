@@ -94,7 +94,7 @@
     "yocto-queue": "^0.1.0"
   },
   "scripts": {
-    "lint" : "eslin ./",
+    "lint" : "eslin ./"
   },
   "repository": {
     "type": "git",
