@@ -17,8 +17,6 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-
-
 const inputLN = document.getElementById("inputLastName");
 const inputFN = document.getElementById("inputFirstName");
 const inputEmail = document.getElementById("inputEmail");
