@@ -20,13 +20,13 @@
     <main id="main">
 
     </main aria-label="Menu principal d'un photographe">
-    <div id="contact_modal">
+    <div  aria-label="fenêtre de contact" id="contact_modal">
         <div class="modal">
-            <header>
+            <header aria-label="entête de fenêtre principale" >
                 <h2 aria-label="Contactez moi">Contactez-moi</h2>
                 <img alt="Bouton de fermeture de la modale" src="assets/icons/close.svg" onclick="closeModal()" />
             </header>
-            <form role="formulaire de contact" name="formContactMe">
+            <form aria-label="formulaire de contact" role="formulaire de contact" name="formContactMe">
                 <div>
                     <h3 id="lePhotographe"></h3>
                     <label for="inputLastName" aria-label="Saisissez votre nom">Saisissez votre nom :</label>
@@ -39,10 +39,10 @@
                     <textarea aria-label="Ajouter un message" id="message" name="message" rows="6"></textarea>
                 </div>
             </form>
-            <button class="contact_button">Envoyer</button>
+            <button aria-label="bouton de contact" class="contact_button">Envoyer</button>
         </div>
     </div>
-    <div id="light_modal">
+    <div aria-label="fenêtre caroussel photographies"  id="light_modal">
         <div class="light_modal_content">
 
             <strong role="visualiser la photo précédente" class="fa-solid fa-chevron-left" tabindex="0"></strong>
