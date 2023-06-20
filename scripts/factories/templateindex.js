@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 //fonction de création des élément du DOM de la page principale avec déclaration de variables
 function photographerFactory(data) {

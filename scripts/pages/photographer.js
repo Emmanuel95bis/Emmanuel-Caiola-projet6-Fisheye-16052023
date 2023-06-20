@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 //récupération de l'ID du photographe
 const resultat = location.search.indexOf('=');
@@ -23,7 +24,7 @@ function activationFiltre() {
   for (let i = 1; i < 12; i++) {
     //chaine = `option${i}`;
     chaine = "";
-    if ((i != 8) || (i != 9)) { chaine = document.querySelector(`#option${i}`) };
+    if ((i != 8) || (i != 9)) { chaine = document.querySelector(`#option${i}`) }
   }
 
   // Ajouter des écouteurs d'évènements pour le filtre
@@ -87,7 +88,7 @@ function validationKeyboardPicture(pictures) {
       openLightModal(chaine, pictures);
     }
   });
-};
+}
 
 
 
@@ -101,7 +102,6 @@ async function modifyFiltre1() {
   const pictures = await getThePictures(thePhotographer);
   templatePicturesPhotographer(pictures, photographerData[0].name, 1,photographerData);
 
-  const photoSection = document.querySelector(".photos");
 
   validationKeyboardPicture(pictures);
 }

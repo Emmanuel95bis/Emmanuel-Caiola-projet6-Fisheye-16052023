@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 
 //mise en place du filtre
 function templateFiltre() {
@@ -78,14 +80,13 @@ function templatePicturesPhotographer(data, photographe, order, photographerData
       data.sort((a, b) => (b.date > a.date) ? 1 : -1);
 
       break;
-      break;
     case 3:
       //tri par titre      
       data.sort((a, b) => (a.title > b.title ? 1 : -1));
       break;
   }
-  compteur = 0;
-  likeCompteur = 0;
+  let compteur = 0;
+  let likeCompteur = 0;
   data.forEach((ligne) => {
     compteur++;
     likeCompteur = likeCompteur + ligne.likes;

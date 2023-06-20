@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 //récupération des datas photographes pour la première page
 async function displayData(photographers) {
@@ -19,14 +20,14 @@ async function displayData(photographers) {
             }
         });
     });
-};
+}
 
 async function init() {
     // Récupère les datas des photographes
     const photographers = await getPhotographers();
 
     displayData(photographers);
-};
+}
 
 init();
 

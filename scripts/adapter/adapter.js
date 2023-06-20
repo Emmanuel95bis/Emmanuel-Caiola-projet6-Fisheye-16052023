@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 //récupèration des informations des photographes
 async function getPhotographers() {
   const reponse = await fetch("/data/photographers.json");
