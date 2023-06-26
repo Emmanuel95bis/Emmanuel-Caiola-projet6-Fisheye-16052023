@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const chevronRight = document.querySelector('.fa-chevron-right');
 const chevronLeft = document.querySelector('.fa-chevron-left');
 const close = document.querySelector('.fa-times');
@@ -26,7 +27,7 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
     document.querySelector("header").style.display = "none";
     document.querySelector("main").style.display = "none";
 
-    compteur = 0;
+    let compteur = 0;
 
     function displayTitle(titre){
         addTitle.innerHTML = titre;
@@ -51,7 +52,7 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
             if(imageNum != compteur)  img.style.display = "none" 
             else{ img.style.display = "flex"
             displayTitle(element.title);
-        };
+        }
         }
 
         if (element.video) {
@@ -64,7 +65,7 @@ function displayLightModal(imageNum, imageInOrder, lePhotographe) {
             if(imageNum != compteur) mp4.style.display = "none" 
             else{ mp4.style.display = "flex"
             displayTitle(element.title)
-        };
+        }
             document.getElementById('light_modal_picture').appendChild(mp4);
 
         }

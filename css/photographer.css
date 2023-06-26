@@ -2,8 +2,13 @@
 @import url("filtre.css");
 @import url("contactezmoi-modale.css");
 body {
+  font-family: "DM Sans", sans-serif;
   max-width: 1440px;
   margin: auto;
+}
+
+header img {
+  width: 15%;
 }
 
 .photograph-pictures {

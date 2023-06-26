@@ -6,10 +6,14 @@ $color-brown: #901C1C;
 $color-brown-light: #DB8876;
 
 body {
+    font-family: "DM Sans", sans-serif;
     max-width: 1440px;
     margin: auto;
 }
 
+header img{
+    width : 15%;
+}
 
 .photograph-pictures {
     display: flex;
